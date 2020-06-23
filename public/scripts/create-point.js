@@ -63,8 +63,9 @@ document
         //adicionar ou remover uma classe com javascript
         itemLi.classList.toggle("selected")
 
-
         const itemId = itemLi.dataset.id
+
+        //console.log('Item ID: ', itemId)
 
         //verificar se existem items selecionados, se sim
         //pegar os itens selecionados
@@ -86,6 +87,8 @@ document
             //se não estiver selecionado, adicionar a seleção
             selectedItems.push(itemId)
         }
+
+        //console.log('SelectedItems: ', selectedItems)
 
         //atualizar o campo escondido com os itens selecionados
         collectedItems.value = selectedItems

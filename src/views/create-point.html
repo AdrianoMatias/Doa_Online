@@ -4,6 +4,7 @@
 
 {% block styles %}
     <link rel="stylesheet" href="/styles/create-point.css">
+    <link rel="stylesheet" href="/styles/modal.css">
 {% endblock styles %}
 
 {% block title %}
@@ -12,7 +13,8 @@
 
 {% block content %}
     {% include "partials/page-header.html" %}
-    <form action="">
+
+    <form action="/savepoint" method="POST">
 
         <h1>Cadastro do ponto de doação</h1>
 
@@ -29,7 +31,7 @@
 
             <div class="field">
                 <label for="name">Imagem da entidade</label>
-                <input type="url" name="imshr" required="required" placeholder="http://">
+                <input type="url" name="image" required="required" placeholder="http://">
             </div>
         </div>
 
@@ -74,32 +76,32 @@
             
 
             <div class="items-grid">
-                <li data-id="1">
+                <li data-id="Alimentos">
                     <img src="assets/alimentos.svg" alt="Alimentos"/>
                     <span>Alimentos</span>
                 </li>
 
-                <li data-id="2">
+                <li data-id="Roupas">
                     <img src="assets/roupas.svg" alt="Roupas"/>
                     <span>Roupas</span>
                 </li>
 
-                <li data-id="3">
+                <li data-id="Remédios">
                     <img src="assets/remedios.svg" alt="Remédios"/>
                     <span>Remédios</span>
                 </li>
 
-                <li data-id="4">
+                <li data-id="Higiene">
                     <img src="assets/higiene.svg" alt="Higiene"/>
                     <span>Higiene</span>
                 </li>
 
-                <li data-id="5">
+                <li data-id="Livros">
                     <img src="assets/livros.svg" alt="Livros"/>
                     <span>Livros</span>
                 </li>
 
-                <li data-id="6">
+                <li data-id="Brinquedos">
                     <img src="assets/brinquedos.svg" alt="Brinquedos"/>
                     <span>Brinquedos</span>
                 </li>
@@ -113,8 +115,15 @@
         <button>Cadastrar ponto de coleta de doação</button>
 
     </form>
-
 {% endblock content %}
+
+{% block modal%}
+     {% if saved %}
+        {%include "partials/point-created.html"%}
+    {% endif %}
+{%endblock modal%}
+
+
 
 {% block scripts %}
     <script src="scripts/create-point.js"></script>
